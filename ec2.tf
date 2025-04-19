@@ -1,4 +1,15 @@
-resource "aws_security_group" "allow_ssh1" {
+resource "aws_instance" "frontend" {
+    ami="ami-09c813fb71547fc4f"
+    vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+    instance_type = "t3.micro"
+
+    tags{
+        name="frontend"
+    }
+    
+}
+
+resource "aws_security_group" "allow_ssh" {
     name = "allow_ssh"
     description = "allowing SSH access"
 
