@@ -3,8 +3,8 @@ resource "aws_instance" "frontend" {
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     instance_type = "t3.micro"
 
-    tags{
-        name="frontend"
+    tags = {
+        name ="frontend"
     }
     
 }
